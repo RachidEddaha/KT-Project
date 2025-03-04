@@ -1,7 +1,4 @@
-# usually i would exclude config.env and let only config-example.env
-# but this time i let it, to simplify the execution of the project
-
-#cmd/config.env
+config.env
 
 .idea/
 
