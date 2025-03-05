@@ -17,6 +17,7 @@ type service interface {
 	GetFilmDetail(ctx context.Context, ID int) (dto.FilmDetail, error)
 	DeleteFilm(ctx context.Context, filmID int, userID int) error
 	CreateFilm(ctx context.Context, request dto.FilmCreateRequest) error
+	UpdateFilm(ctx context.Context, request dto.FilmUpdateRequest) error
 }
 
 type Controller struct {
@@ -42,7 +43,7 @@ func (c *Controller) RegisterRoutes(e *echo.Echo) {
 
 	g.GET("", c.getFilmPaginated) // TODO: include query params to filter the films
 	g.GET("/:id", c.getFilmDetail)
-	// g.PUT("/:id", c.updateFilmDetail)
+	g.PUT("/:id", c.updateFilmDetail)
 	g.DELETE("/:id", c.deleteFilm)
 	g.POST("", c.createFilm)
 }
@@ -120,6 +121,29 @@ func (c *Controller) createFilm(context echo.Context) error {
 	err = c.service.CreateFilm(context.Request().Context(), request)
 	if err != nil {
 		logger.Error().Err(err).Msg("create film failed")
+		return err
+	}
+	return context.NoContent(http.StatusOK)
+}
+
+func (c *Controller) updateFilmDetail(context echo.Context) error {
+	request := dto.FilmUpdateRequest{}
+	err := context.Bind(&request)
+	if err != nil {
+		return err
+	}
+	err = context.Validate(request)
+	if err != nil {
+		return err
+	}
+	request.UserID, err = utils.GetUserID(context)
+	if err != nil {
+		return err
+	}
+
+	err = c.service.UpdateFilm(context.Request().Context(), request)
+	if err != nil {
+		logger.Error().Err(err).Msg("update film failed")
 		return err
 	}
 	return context.NoContent(http.StatusOK)

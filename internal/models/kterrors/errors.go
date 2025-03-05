@@ -13,4 +13,5 @@ const (
 	UserNotFoundError           = "USER_NOT_FOUND_ERROR"
 	UserCannotDeleteFilmError   = "USER_CANNOT_DELETE_FILM_ERROR"
 	FilmTitleAlreadyExistsError = "FILM_TITLE_ALREADY_EXISTS_ERROR"
+	UserCannotUpdateFilmError   = "USER_CANNOT_UPDATE_FILM_ERROR"
 )

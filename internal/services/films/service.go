@@ -16,6 +16,7 @@ type Repository interface {
 	GetFilm(ctx context.Context, ID int) (entities.Film, error)
 	DeleteFilm(ctx context.Context, id int) error
 	CreateFilm(ctx context.Context, film entities.Film) error
+	UpdateFilm(ctx context.Context, film entities.Film) error
 }
 
 type Service struct {
@@ -96,6 +97,28 @@ func (s *Service) CreateFilm(ctx context.Context, request dto.FilmCreateRequest)
 		UserID:      request.UserID,
 	}
 	err := s.repo.CreateFilm(ctx, film)
+	if err != nil {
+		if customerror.IsUniqueViolation(err) {
+			return customerror.NewCustomError(kterrors.FilmTitleAlreadyExistsError)
+		}
+		return err
+	}
+	return nil
+}
+
+func (s *Service) UpdateFilm(ctx context.Context, request dto.FilmUpdateRequest) error {
+	film, err := s.repo.GetFilm(ctx, request.ID)
+	if err != nil {
+		return err
+	}
+	if film.UserID != request.UserID {
+		return customerror.NewCustomError(kterrors.UserCannotUpdateFilmError)
+	}
+	film.Title = request.Title
+	film.Director = request.Director
+	film.ReleaseDate = request.ReleaseDate
+	film.Synopsis = request.Synopsis
+	err = s.repo.UpdateFilm(ctx, film)
 	if err != nil {
 		if customerror.IsUniqueViolation(err) {
 			return customerror.NewCustomError(kterrors.FilmTitleAlreadyExistsError)

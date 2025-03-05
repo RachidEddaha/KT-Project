@@ -51,3 +51,12 @@ func (r *Repository) DeleteFilm(ctx context.Context, id int) error {
 func (r *Repository) CreateFilm(ctx context.Context, film entities.Film) error {
 	return r.db.WithContext(ctx).Create(&film).Error
 }
+
+func (r *Repository) UpdateFilm(ctx context.Context, film entities.Film) error {
+	return r.db.WithContext(ctx).Model(&film).Updates(entities.Film{
+		Title:       film.Title,
+		Director:    film.Director,
+		ReleaseDate: film.ReleaseDate,
+		Synopsis:    film.Synopsis,
+	}).Error
+}
