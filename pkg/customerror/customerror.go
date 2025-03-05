@@ -62,3 +62,10 @@ func IsNotFoundError(err error) bool {
 	}
 	return false
 }
+
+func IsUniqueViolation(err error) bool {
+	if errors.Is(err, gorm.ErrDuplicatedKey) {
+		return true
+	}
+	return false
+}

@@ -10,5 +10,7 @@ const (
 	NeedAtLeastOneSpecialChar   = "NEED_AT_LEAST_ONE_SPECIAL_CHAR"
 	InvalidUsernameError        = "INVALID_USERNAME_ERROR"
 
-	UserNotFoundError = "USER_NOT_FOUND_ERROR"
+	UserNotFoundError           = "USER_NOT_FOUND_ERROR"
+	UserCannotDeleteFilmError   = "USER_CANNOT_DELETE_FILM_ERROR"
+	FilmTitleAlreadyExistsError = "FILM_TITLE_ALREADY_EXISTS_ERROR"
 )
