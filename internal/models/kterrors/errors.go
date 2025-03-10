@@ -2,6 +2,7 @@ package kterrors
 
 const (
 	UsernameAlreadyExistsError  = "USERNAME_ALREADY_EXISTS"
+	WrongLoginCredentialsError  = "WRONG_LOGIN_CREDENTIALS"
 	InvalidPasswordError        = "INVALID_PASSWORD_ERROR"
 	NeedAtLeastLength           = "NEED_AT_LEAST_LENGTH"
 	NeedAtLeastOneUppercaseChar = "NEED_AT_LEAST_ONE_UPPERCASE_CHAR"

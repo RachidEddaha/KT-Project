@@ -8,6 +8,7 @@ import (
 	"task/internal/models/kterrors"
 	"task/pkg/customerror"
 	"task/pkg/database/entities"
+	"task/pkg/logger"
 )
 
 const (
@@ -36,12 +37,18 @@ func NewService(repo Repository, tg TokensGeneration) *Service {
 }
 
 func (s *Service) Login(ctx context.Context, request dto.Login) (dto.JWTTokens, error) {
+	logger.Debug().Msg("Login service")
 	user, err := s.repo.FindUser(ctx, request.Username)
 	if err != nil {
 		if customerror.IsNotFoundError(err) {
 			return dto.JWTTokens{}, customerror.NewCustomError(kterrors.UserNotFoundError)
 		}
 		return dto.JWTTokens{}, err
+	}
+	err = bcrypt.CompareHashAndPassword([]byte(user.Password), []byte(request.Password))
+	if err != nil {
+		logger.Error().Err(err).Msg("passwords do not match")
+		return dto.JWTTokens{}, customerror.NewCustomError(kterrors.WrongLoginCredentialsError)
 	}
 	jwtTokens, err := s.tg.GenerateAuthTokens(user.ID, user.Username)
 	if err != nil {
