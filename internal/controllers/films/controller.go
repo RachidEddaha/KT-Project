@@ -100,7 +100,7 @@ func (c *Controller) deleteFilm(context echo.Context) error {
 		logger.Error().Err(err).Msg("delete film failed")
 		return err
 	}
-	return context.NoContent(http.StatusOK)
+	return context.NoContent(http.StatusNoContent)
 }
 
 func (c *Controller) createFilm(context echo.Context) error {
@@ -123,7 +123,7 @@ func (c *Controller) createFilm(context echo.Context) error {
 		logger.Error().Err(err).Msg("create film failed")
 		return err
 	}
-	return context.NoContent(http.StatusOK)
+	return context.NoContent(http.StatusNoContent)
 }
 
 func (c *Controller) updateFilmDetail(context echo.Context) error {
@@ -146,5 +146,5 @@ func (c *Controller) updateFilmDetail(context echo.Context) error {
 		logger.Error().Err(err).Msg("update film failed")
 		return err
 	}
-	return context.NoContent(http.StatusOK)
+	return context.NoContent(http.StatusNoContent)
 }

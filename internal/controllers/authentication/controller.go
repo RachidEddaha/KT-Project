@@ -72,5 +72,5 @@ func (c *Controller) createUser(context echo.Context) error {
 		logger.Error().Err(err).Msg("create user failed")
 		return err
 	}
-	return context.NoContent(http.StatusOK)
+	return context.NoContent(http.StatusNoContent)
 }
