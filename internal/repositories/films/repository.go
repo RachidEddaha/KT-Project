@@ -1,10 +1,10 @@
 package films
 
 import (
+	"KTOnlinePlatform/internal/models"
+	"KTOnlinePlatform/pkg/database/entities"
 	"context"
 	"gorm.io/gorm"
-	"task/internal/models"
-	"task/pkg/database/entities"
 )
 
 type Repository struct {

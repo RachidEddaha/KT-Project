@@ -1,9 +1,9 @@
 package database
 
 import (
+	"KTOnlinePlatform/pkg/configuration"
+	"KTOnlinePlatform/pkg/logger"
 	"gorm.io/gorm"
-	"task/pkg/configuration"
-	"task/pkg/logger"
 )
 
 func NewDatabase(config configuration.ConfigDatabase) *gorm.DB {

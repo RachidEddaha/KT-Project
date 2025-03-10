@@ -1,13 +1,13 @@
 package webutils
 
 import (
+	"KTOnlinePlatform/pkg/configuration"
+	"KTOnlinePlatform/pkg/customerror"
+	"KTOnlinePlatform/pkg/logger"
 	"context"
 	"github.com/go-playground/validator/v10"
 	"github.com/labstack/echo/v4"
 	"github.com/labstack/echo/v4/middleware"
-	"task/pkg/configuration"
-	"task/pkg/customerror"
-	"task/pkg/logger"
 )
 
 type customValidator struct {

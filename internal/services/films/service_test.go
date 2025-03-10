@@ -1,22 +1,23 @@
 package films
 
 import (
+	"KTOnlinePlatform/internal/services/films/mocks"
+	"KTOnlinePlatform/pkg/database/entities/entitiescustom"
+	"KTOnlinePlatform/pkg/logger"
 	"context"
 	"errors"
 	"gorm.io/gorm"
-	"task/internal/services/films/mocks"
-	"task/pkg/database/entities/entitiescustom"
 	"testing"
 	"time"
 
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/mock"
 
-	"task/internal/dto"
-	"task/internal/models"
-	"task/internal/models/kterrors"
-	"task/pkg/customerror"
-	"task/pkg/database/entities"
+	"KTOnlinePlatform/internal/dto"
+	"KTOnlinePlatform/internal/models"
+	"KTOnlinePlatform/internal/models/kterrors"
+	"KTOnlinePlatform/pkg/customerror"
+	"KTOnlinePlatform/pkg/database/entities"
 )
 
 // setupMockRepository creates a mock repository for testing
@@ -25,7 +26,7 @@ func setupMockRepository(t *testing.T) *mocks.Repository {
 }
 
 func TestGetFilmPaginated(t *testing.T) {
-	t.Parallel()
+	logger.InitializeForTest()
 
 	testCases := []struct {
 		name           string
@@ -115,7 +116,7 @@ func TestGetFilmPaginated(t *testing.T) {
 }
 
 func TestGetFilmDetail(t *testing.T) {
-	t.Parallel()
+	logger.InitializeForTest()
 
 	testCases := []struct {
 		name           string
@@ -181,7 +182,7 @@ func TestGetFilmDetail(t *testing.T) {
 }
 
 func TestDeleteFilm(t *testing.T) {
-	t.Parallel()
+	logger.InitializeForTest()
 
 	testCases := []struct {
 		name          string
@@ -250,7 +251,7 @@ func TestDeleteFilm(t *testing.T) {
 }
 
 func TestCreateFilm(t *testing.T) {
-	t.Parallel()
+	logger.InitializeForTest()
 
 	testCases := []struct {
 		name          string
@@ -325,8 +326,7 @@ func TestCreateFilm(t *testing.T) {
 }
 
 func TestUpdateFilm(t *testing.T) {
-	t.Parallel()
-
+	logger.InitializeForTest()
 	testCases := []struct {
 		name          string
 		request       dto.FilmUpdateRequest

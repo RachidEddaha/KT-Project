@@ -1,9 +1,9 @@
 package logger
 
 import (
+	"KTOnlinePlatform/pkg/configuration"
 	"github.com/magiconair/properties/assert"
 	"github.com/rs/zerolog"
-	"task/pkg/configuration"
 	"testing"
 )
 

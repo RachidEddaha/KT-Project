@@ -1,11 +1,11 @@
 package logger
 
 import (
+	"KTOnlinePlatform/pkg/configuration"
 	"fmt"
 	"github.com/rs/zerolog"
 	"io"
 	"os"
-	"task/pkg/configuration"
 	"time"
 )
 

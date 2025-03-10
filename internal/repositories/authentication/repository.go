@@ -1,9 +1,9 @@
 package authentication
 
 import (
+	"KTOnlinePlatform/pkg/database/entities"
 	"context"
 	"gorm.io/gorm"
-	"task/pkg/database/entities"
 )
 
 type Repository struct {

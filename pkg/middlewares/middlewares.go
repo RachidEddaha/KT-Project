@@ -1,13 +1,13 @@
 package middlewares
 
 import (
+	"KTOnlinePlatform/internal/dto"
+	"KTOnlinePlatform/pkg/logger"
+	"KTOnlinePlatform/pkg/utils"
 	"github.com/golang-jwt/jwt"
 	echojwt "github.com/labstack/echo-jwt/v4"
 	"github.com/labstack/echo/v4"
 	"strconv"
-	"task/internal/dto"
-	"task/pkg/logger"
-	"task/pkg/utils"
 	"time"
 )
 

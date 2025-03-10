@@ -1,9 +1,9 @@
 package database
 
 import (
+	"KTOnlinePlatform/pkg/configuration"
+	"KTOnlinePlatform/pkg/logger"
 	"database/sql"
-	"task/pkg/configuration"
-	"task/pkg/logger"
 	"time"
 )
 

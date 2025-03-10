@@ -1,11 +1,11 @@
 package database
 
 import (
+	"KTOnlinePlatform/pkg/utils"
 	"database/sql"
 	"gorm.io/driver/postgres"
 	"gorm.io/gorm"
 	gormLogger "gorm.io/gorm/logger"
-	"task/pkg/utils"
 )
 
 func NewGormDatabase(sqlDB *sql.DB) (*gorm.DB, error) {

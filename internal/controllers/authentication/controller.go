@@ -1,11 +1,11 @@
 package authentication
 
 import (
+	"KTOnlinePlatform/internal/dto"
+	"KTOnlinePlatform/pkg/logger"
 	"context"
 	"github.com/labstack/echo/v4"
 	"net/http"
-	"task/internal/dto"
-	"task/pkg/logger"
 )
 
 type service interface {

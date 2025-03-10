@@ -1,14 +1,14 @@
 package films
 
 import (
+	"KTOnlinePlatform/internal/dto"
+	"KTOnlinePlatform/internal/models"
+	"KTOnlinePlatform/internal/models/consts"
+	"KTOnlinePlatform/internal/models/kterrors"
+	"KTOnlinePlatform/pkg/customerror"
+	"KTOnlinePlatform/pkg/database/entities"
 	"context"
 	"github.com/samber/lo"
-	"task/internal/dto"
-	"task/internal/models"
-	"task/internal/models/consts"
-	"task/internal/models/kterrors"
-	"task/pkg/customerror"
-	"task/pkg/database/entities"
 )
 
 type Repository interface {

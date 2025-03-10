@@ -1,7 +1,7 @@
 package logger
 
 import (
-	"task/pkg/configuration"
+	"KTOnlinePlatform/pkg/configuration"
 )
 
 func InitializeForTest() {

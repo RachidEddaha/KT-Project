@@ -1,7 +1,7 @@
 package entities
 
 import (
-	"task/pkg/database/entities/entitiescustom"
+	"KTOnlinePlatform/pkg/database/entities/entitiescustom"
 	"time"
 )
 

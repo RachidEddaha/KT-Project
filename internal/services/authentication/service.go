@@ -1,14 +1,14 @@
 package authentication
 
 import (
+	"KTOnlinePlatform/internal/dto"
+	"KTOnlinePlatform/internal/models/kterrors"
+	"KTOnlinePlatform/pkg/customerror"
+	"KTOnlinePlatform/pkg/database/entities"
+	"KTOnlinePlatform/pkg/logger"
 	"context"
 	"golang.org/x/crypto/bcrypt"
 	"regexp"
-	"task/internal/dto"
-	"task/internal/models/kterrors"
-	"task/pkg/customerror"
-	"task/pkg/database/entities"
-	"task/pkg/logger"
 )
 
 const (

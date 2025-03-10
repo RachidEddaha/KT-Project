@@ -1,15 +1,15 @@
 package authentication
 
 import (
+	"KTOnlinePlatform/internal/dto"
+	"KTOnlinePlatform/internal/models/consts"
+	"KTOnlinePlatform/pkg/logger"
+	"KTOnlinePlatform/pkg/middlewares"
+	"KTOnlinePlatform/pkg/utils"
+	"KTOnlinePlatform/pkg/webutils"
 	"context"
 	"github.com/labstack/echo/v4"
 	"net/http"
-	"task/internal/dto"
-	"task/internal/models/consts"
-	"task/pkg/logger"
-	"task/pkg/middlewares"
-	"task/pkg/utils"
-	"task/pkg/webutils"
 )
 
 type service interface {

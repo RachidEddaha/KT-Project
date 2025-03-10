@@ -1,17 +1,17 @@
 package main
 
 import (
-	authcontroller "task/internal/controllers/authentication"
-	filmscontroller "task/internal/controllers/films"
-	"task/internal/repositories/authentication"
-	"task/internal/repositories/films"
-	authservice "task/internal/services/authentication"
-	filmsservice "task/internal/services/films"
-	"task/pkg/configuration"
-	"task/pkg/database"
-	"task/pkg/logger"
-	"task/pkg/middlewares"
-	"task/pkg/webutils"
+	authcontroller "KTOnlinePlatform/internal/controllers/authentication"
+	filmscontroller "KTOnlinePlatform/internal/controllers/films"
+	"KTOnlinePlatform/internal/repositories/authentication"
+	"KTOnlinePlatform/internal/repositories/films"
+	authservice "KTOnlinePlatform/internal/services/authentication"
+	filmsservice "KTOnlinePlatform/internal/services/films"
+	"KTOnlinePlatform/pkg/configuration"
+	"KTOnlinePlatform/pkg/database"
+	"KTOnlinePlatform/pkg/logger"
+	"KTOnlinePlatform/pkg/middlewares"
+	"KTOnlinePlatform/pkg/webutils"
 )
 
 func main() {

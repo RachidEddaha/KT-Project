@@ -1,6 +1,6 @@
 package dto
 
-import "task/pkg/database/entities/entitiescustom"
+import "KTOnlinePlatform/pkg/database/entities/entitiescustom"
 
 type FilmSearchRequest struct {
 	Page     int `query:"page"`
